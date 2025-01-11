@@ -1,9 +1,17 @@
-# "org" ensures this Service is used with the correct Serverless Framework Access Key.
 org: marcoshenriquedev
-# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
 app: calda
-# "service" is the name of this project. This will also be added to your AWS resource names.
 service: calda
+
+build:
+  esbuild:
+    minify: true
+    target: node20
+    sourcemap: false
+    exclude:
+      - "@aws-sdk/*"
+
+package:
+  individually: true
 
 provider:
   name: aws
@@ -20,22 +28,6 @@ provider:
             - dynamodb:UpdateItem
           Resource:
             - !GetAtt CaldaTable.Arn
- # S3
-        - Effect: Allow
-          Action:
-            - s3:PutObject
-          Resource: !Join ['/', [!GetAtt CaldaBucket.Arn, '*']]
-        - Effect: Allow
-          Action:
-            - s3:DeleteObject
-          Resource: !Join ['/', [!GetAtt CaldaBucket.Arn, '*']]
-        - Effect: 'Allow'
-          Action:
-            - 's3:PutBucketAcl'
-            - s3:PutBucketPolicy
-          Resource:
-            - !GetAtt CaldaBucket.Arn
-
 resources:
   Resources:
     CaldaTable:
@@ -55,22 +47,11 @@ resources:
             KeyType: HASH
           - AttributeName: SK
             KeyType: RANGE
-  Resources:
-    CaldaBucket:
-      Type: AWS::S3::Bucket
-      Properties:
-        BucketName: caldaapp-bucket
-        PublicAccessBlockConfiguration:
-          BlockPublicAcls: false
-          IgnorePublicAcls: false
-        CorsConfiguration:
-          CorsRules:
-            - AllowedOrigins:
-                - '*'
-              AllowedHeaders:
-                - '*'
-              AllowedMethods:
-                - PUT
-                - GET
-                - DELETE
 
+functions:
+  createCook:
+    handler: src/functions/cooks/createCook.handler
+    events:
+      - httpApi:
+          path: /cooks
+          method: POST
