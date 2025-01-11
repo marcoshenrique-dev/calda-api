@@ -12,11 +12,9 @@ export function bodyValidationAdapter<T>(
       return validatedBody;
     } catch (error) {
       if (error instanceof ZodError) {
-        throw new ValidationError({
-          message:
-            "Alguma das informações enviadas não correspondem às regras estabelecidas",
-          error: error,
-        });
+        throw new ValidationError(
+          "Alguma das informações enviadas não corresponde as regras estabelecidas"
+        );
       }
 
       throw new SystemError("Erro desconhecido");
@@ -40,11 +38,9 @@ export function paramsValidationAdapter<T>(
       return validatedParams;
     } catch (error) {
       if (error instanceof ZodError) {
-        throw new ValidationError({
-          message:
-            "Alguma das informações enviadas não correspondem às regras estabelecidas",
-          error: error,
-        });
+        throw new ValidationError(
+          "Alguma das informações enviadas não corresponde às regras estabelecidas"
+        );
       }
 
       throw new SystemError("Erro desconhecido");
@@ -64,11 +60,9 @@ export function queryValidationAdapter<T>(
       return validatedQuery;
     } catch (error) {
       if (error instanceof ZodError) {
-        throw new ValidationError({
-          message:
-            "Alguma das informações enviadas não correspondem às regras estabelecidas",
-          error: error,
-        });
+        throw new ValidationError(
+          "Alguma das informações enviadas não corresponde às regras estabelecidas"
+        );
       }
 
       throw new SystemError("Erro desconhecido");
