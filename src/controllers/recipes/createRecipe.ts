@@ -1,16 +1,18 @@
 import type { IController, IRequest, IResponse } from "../../types";
 
-import { TableName, Types, dynamoClient } from "../../database";
+import { TableName, dynamoClient } from "../../database";
 
 import { bodyValidationAdapter, getId } from "../../utils";
-import { createCookRequest } from "../../requests/createCook";
+
+import { createRecipeRequest } from "../../requests/createRecipe";
+
 import { errorHandler } from "../../errors/errorHandler";
 
 import { PutCommand } from "@aws-sdk/lib-dynamodb";
 
-const validateBody = bodyValidationAdapter(createCookRequest);
+const validateBody = bodyValidationAdapter(createRecipeRequest);
 
-export class CreateCookController implements IController {
+export class CreteRecipeController implements IController {
   async handle({ body }: IRequest): Promise<IResponse> {
     try {
       const data = validateBody(body);
@@ -20,12 +22,15 @@ export class CreateCookController implements IController {
       const command = new PutCommand({
         TableName,
         Item: {
-          PK: `COOK#${id}`,
-          SK: `COOK#${id}`,
-          GS1PK: "COOKS",
-          GS1SK: `COOK#${id}`,
+          PK: `COOK#${data.cookId}`,
+          SK: `RECIPE#${id}`,
 
-          type: Types.cook,
+          GS1PK: "RECIPES",
+          GS1SK: `RECIPE#${id}`,
+
+          GS2PK: `RECIPE#${id}`,
+          GS2SK: `COOK#${data.cookId}`,
+
           id,
           ...data,
         },
@@ -37,7 +42,7 @@ export class CreateCookController implements IController {
         statusCode: 200,
         body: {
           cook: Attributes,
-          message: "Cozinheiro adicionado com sucesso",
+          message: "Receita adicionada com sucesso",
         },
       };
     } catch (err) {

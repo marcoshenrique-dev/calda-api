@@ -89,3 +89,9 @@ functions:
       - httpApi:
           path: /cooks
           method: GET
+  createRecipe:
+    handler: src/handlers/recipes/createRecipe.handler
+    events:
+      - httpApi:
+          path: /recipes
+          method: POST
