@@ -19,6 +19,14 @@ export const createRecipeRequest = z.object({
     )
     .min(1, "ingredients are required"),
   photoUrl: z.string().optional(),
+  categories: z
+    .array(
+      z.object({
+        name: z.string(),
+        slug: z.string(),
+      })
+    )
+    .min(1, "categories are required"),
 });
 
 export type ICreateRecipeRequest = z.infer<typeof createRecipeRequest>;

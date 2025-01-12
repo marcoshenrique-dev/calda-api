@@ -27,6 +27,7 @@ provider:
             - dynamodb:Scan
             - dynamodb:UpdateItem
             - dynamodb:Query
+            - dynamodb:BatchWriteItem
           Resource:
             - !GetAtt CaldaTable.Arn
             - !Sub "${CaldaTable.Arn}/index/GS1"

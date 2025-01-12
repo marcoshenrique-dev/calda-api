@@ -8,18 +8,18 @@ import { createRecipeRequest } from "../../requests/createRecipe";
 
 import { errorHandler } from "../../errors/errorHandler";
 
-import { PutCommand } from "@aws-sdk/lib-dynamodb";
+import { BatchWriteCommand, PutCommand } from "@aws-sdk/lib-dynamodb";
 
 const validateBody = bodyValidationAdapter(createRecipeRequest);
 
 export class CreateRecipeController implements IController {
   async handle({ body }: IRequest): Promise<IResponse> {
     try {
-      const data = validateBody(body);
+      const { categories, ...data } = validateBody(body);
 
       const id = getId();
 
-      const command = new PutCommand({
+      const addRecipeCommand = new PutCommand({
         TableName,
         Item: {
           PK: `COOK#${data.cookId}`,
@@ -38,16 +38,45 @@ export class CreateRecipeController implements IController {
         },
       });
 
-      const { Attributes } = await dynamoClient.send(command);
+      const { Attributes: RecipeItem } = await dynamoClient.send(
+        addRecipeCommand
+      );
+
+      const categoryRequests = categories.map((item) => ({
+        PutRequest: {
+          Item: {
+            PK: `CATEGORY#${item.slug}`,
+            SK: `CATEGORY_RECIPE#${id}`,
+            GS1PK: `CATEGORY_RECIPE#${id}`,
+            GS1SK: `CATEGORY#${item.slug}`,
+            type: Types.categoryRecipe,
+            categoryName: item.name,
+            recipeId: id,
+            name: data.name,
+            level: data.level,
+            preparationTime: data.preparationTime,
+            photoUrl: data.photoUrl,
+          },
+        },
+      }));
+
+      const categoriesRelation = new BatchWriteCommand({
+        RequestItems: {
+          [TableName]: categoryRequests,
+        },
+      });
+
+      await dynamoClient.send(categoriesRelation);
 
       return {
         statusCode: 200,
         body: {
-          cook: Attributes,
+          recipe: RecipeItem,
           message: "Receita adicionada com sucesso",
         },
       };
     } catch (err) {
+      console.log(err);
       return errorHandler(err);
     }
   }
