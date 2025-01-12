@@ -96,11 +96,23 @@ functions:
       - httpApi:
           path: /recipes
           method: POST
+  getRecipesByCook:
+    handler: src/handlers/recipes/getRecipesByCook.handler
+    events:
+      - httpApi:
+          path: /recipes/{cookId}
+          method: GET
   getRecipes:
     handler: src/handlers/recipes/getRecipes.handler
     events:
       - httpApi:
           path: /recipes
+          method: GET
+  findRecipe:
+    handler: src/handlers/recipes/findRecipe.handler
+    events:
+      - httpApi:
+          path: /cook/{cookId}/recipe/{recipeId}
           method: GET
   createCategory:
     handler: src/handlers/categories/createCategory.handler
