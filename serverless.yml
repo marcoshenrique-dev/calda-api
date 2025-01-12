@@ -107,3 +107,9 @@ functions:
       - httpApi:
           path: /categories
           method: POST
+  getCategories:
+    handler: src/handlers/categories/getCategories.handler
+    events:
+      - httpApi:
+          path: /categories
+          method: GET
