@@ -90,6 +90,12 @@ functions:
       - httpApi:
           path: /cooks
           method: GET
+  findCook:
+    handler: src/handlers/cooks/findCook.handler
+    events:
+      - httpApi:
+          path: /cooks/{cookId}
+          method: GET
   createRecipe:
     handler: src/handlers/recipes/createRecipe.handler
     events:
