@@ -26,8 +26,11 @@ provider:
             - dynamodb:GetItem
             - dynamodb:Scan
             - dynamodb:UpdateItem
+            - dynamodb:Query
           Resource:
             - !GetAtt CaldaTable.Arn
+            - !Sub "${CaldaTable.Arn}/index/GS1"
+            - !Sub "${CaldaTable.Arn}/index/GS2"
 resources:
   Resources:
     CaldaTable:
@@ -75,8 +78,14 @@ resources:
 
 functions:
   createCook:
-    handler: src/functions/cooks/createCook.handler
+    handler: src/handlers/cooks/createCook.handler
     events:
       - httpApi:
           path: /cooks
           method: POST
+  getCooks:
+    handler: src/handlers/cooks/getCooks.handler
+    events:
+      - httpApi:
+          path: /cooks
+          method: GET

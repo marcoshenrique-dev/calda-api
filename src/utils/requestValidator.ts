@@ -12,6 +12,7 @@ export function bodyValidationAdapter<T>(
       return validatedBody;
     } catch (error) {
       if (error instanceof ZodError) {
+        console.log(error);
         throw new ValidationError(
           "Alguma das informações enviadas não corresponde as regras estabelecidas"
         );
