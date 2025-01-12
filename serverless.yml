@@ -101,3 +101,9 @@ functions:
       - httpApi:
           path: /recipes
           method: GET
+  createCategory:
+    handler: src/handlers/categories/createCategory.handler
+    events:
+      - httpApi:
+          path: /categories
+          method: POST
