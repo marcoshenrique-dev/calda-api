@@ -100,7 +100,13 @@ functions:
     handler: src/handlers/recipes/getRecipesByCook.handler
     events:
       - httpApi:
-          path: /recipes/{cookId}
+          path: /recipes/cook/{cookId}
+          method: GET
+  getRecipesByCategory:
+    handler: src/handlers/recipes/getRecipesByCategory.handler
+    events:
+      - httpApi:
+          path: /recipes/category/{categorySlug}
           method: GET
   getRecipes:
     handler: src/handlers/recipes/getRecipes.handler
