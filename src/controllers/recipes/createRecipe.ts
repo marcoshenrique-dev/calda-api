@@ -1,6 +1,6 @@
 import type { IController, IRequest, IResponse } from "../../types";
 
-import { TableName, dynamoClient } from "../../database";
+import { TableName, Types, dynamoClient } from "../../database";
 
 import { bodyValidationAdapter, getId } from "../../utils";
 
@@ -30,6 +30,8 @@ export class CreteRecipeController implements IController {
 
           GS2PK: `RECIPE#${id}`,
           GS2SK: `COOK#${data.cookId}`,
+
+          type: Types.recipe,
 
           id,
           ...data,
