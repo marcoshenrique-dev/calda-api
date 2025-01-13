@@ -1,9 +1,0 @@
-- Criar cozinheiro
-- Atualizar cozinheiro
-- Remover um cozinheiro
-- Adicionar uma receita
-- Adicionar uma categoria
-- Buscar uma receita paginada
-- Buscar receitas por categoria
-- Buscar categorias
-- Buscar cozinheiro e receitas pelo id do cozinheiro
