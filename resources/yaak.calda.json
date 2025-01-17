@@ -1,0 +1,296 @@
+{
+  "yaakVersion": "2024.8.2",
+  "yaakSchema": 2,
+  "timestamp": "2025-01-17T12:10:33.911435421",
+  "resources": {
+    "workspaces": [
+      {
+        "id": "wk_0teCzbQCRn",
+        "model": "workspace",
+        "createdAt": "2025-01-11T20:26:32",
+        "updatedAt": "2025-01-11T20:26:32",
+        "name": "Calda",
+        "description": "",
+        "variables": [],
+        "settingValidateCertificates": true,
+        "settingFollowRedirects": true,
+        "settingRequestTimeout": 0
+      }
+    ],
+    "environments": [
+      {
+        "id": "ev_miWDDaPVuh",
+        "workspaceId": "wk_0teCzbQCRn",
+        "model": "environment",
+        "createdAt": "2025-01-11T20:26:39",
+        "updatedAt": "2025-01-12T12:40:28",
+        "name": "Dev",
+        "variables": [
+          {
+            "enabled": true,
+            "name": "BASE_URL",
+            "value": "https://sua-url.amazonaws.com"
+          },
+          {
+            "enabled": true,
+            "name": "",
+            "value": ""
+          }
+        ]
+      }
+    ],
+    "folders": [
+      {
+        "createdAt": "2025-01-12T15:14:46",
+        "updatedAt": "2025-01-12T15:15:08",
+        "id": "fl_eFD4sz8q0S",
+        "workspaceId": "wk_0teCzbQCRn",
+        "folderId": null,
+        "model": "folder",
+        "name": "Categories",
+        "sortPriority": 2000.0
+      },
+      {
+        "createdAt": "2025-01-12T14:31:10",
+        "updatedAt": "2025-01-12T15:15:08",
+        "id": "fl_J59DSQIp8x",
+        "workspaceId": "wk_0teCzbQCRn",
+        "folderId": null,
+        "model": "folder",
+        "name": "Recipes",
+        "sortPriority": 1000.0
+      },
+      {
+        "createdAt": "2025-01-11T20:34:09",
+        "updatedAt": "2025-01-12T15:15:08",
+        "id": "fl_jOQ7NK5UxV",
+        "workspaceId": "wk_0teCzbQCRn",
+        "folderId": null,
+        "model": "folder",
+        "name": "Cooks",
+        "sortPriority": 0.0
+      }
+    ],
+    "httpRequests": [
+      {
+        "createdAt": "2025-01-12T18:34:49",
+        "updatedAt": "2025-01-12T18:35:06",
+        "id": "rq_RznBz9S3S6",
+        "workspaceId": "wk_0teCzbQCRn",
+        "folderId": "fl_jOQ7NK5UxV",
+        "model": "http_request",
+        "sortPriority": -1736627700000.0,
+        "name": "Find cook",
+        "url": "${[ BASE_URL ]}/cooks/2rX51krv2GAa4cPNneQhSohKHUR",
+        "urlParameters": [],
+        "method": "GET",
+        "body": {
+          "text": "{\n  \"name\": \"Alan Ritshon 10\",\n  \"description\": \"Alan Ritshon é um chef de cozinha apaixonado por criar experiências gastronômicas inesquecíveis. Com uma carreira marcada por criatividade e inovação, Alan combina técnicas clássicas com um toque contemporâneo, transformando ingredientes simples em pratos sofisticados e cheios de sabor. Sua especialidade está na harmonização de sabores e na apresentação visual impecável de suas criações, que encantam tanto os olhos quanto o paladar.\",\n  \"instagram\": \"@alan\",\n  \"website\": \"https://alan.com\",\n  \"photoUrl\": \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFsZ79kW1rOF7UAWroc309SGROooGnIUpC2Q&s\"\n}"
+        },
+        "bodyType": null,
+        "authentication": {},
+        "authenticationType": null,
+        "headers": []
+      },
+      {
+        "createdAt": "2025-01-12T18:25:58",
+        "updatedAt": "2025-01-12T18:28:22",
+        "id": "rq_qhP8AE6Lfe",
+        "workspaceId": "wk_0teCzbQCRn",
+        "folderId": "fl_J59DSQIp8x",
+        "model": "http_request",
+        "sortPriority": 0.0,
+        "name": "Get Recipes by Category",
+        "url": "${[ BASE_URL ]}/recipes/category/dia-a-dia",
+        "urlParameters": [],
+        "method": "GET",
+        "body": {
+          "text": "{\n  \"name\": \"Hot Toddy de Cúrcuma\",\n  \"description\": \"Hot Toddy de Cúrcuma\",\n  \"cookId\": \"2rX51krv2GAa4cPNneQhSohKHUR\",\n  \"level\": \"Iniciante\",\n  \"preparationTime\": \"10m\",\n  \"steps\": [\n    \"Firt, add the limon\",\n    \"Second, add the nothing\"\n  ],\n  \"ingredients\": [\n    {\n      \"name\": \"Limon\",\n      \"quantity\": \"7ml\"\n    },\n    {\n      \"name\": \"Limon Slice\",\n      \"quantity\": \"To decorate\"\n    }\n  ],\n  \"photoUrl\": \"https://images.ctfassets.net/3p29fwo3qudu/37nLN5LUVFWCufoVGT7dT3/19a93412cb021fc6482b7a0e71eac466/Rod_Werner__Gabriel_Palatnic__01761_CynareGrapefruit_Cover_01_crop.png-output.jpg?fm=webp&w=96&q=80\"\n}"
+        },
+        "bodyType": null,
+        "authentication": {},
+        "authenticationType": null,
+        "headers": []
+      },
+      {
+        "createdAt": "2025-01-12T18:14:08",
+        "updatedAt": "2025-01-12T18:15:19",
+        "id": "rq_5N62G6dymc",
+        "workspaceId": "wk_0teCzbQCRn",
+        "folderId": "fl_J59DSQIp8x",
+        "model": "http_request",
+        "sortPriority": 0.0,
+        "name": "Get Recipe by key",
+        "url": "${[ BASE_URL ]}/cook/2rX50LpCYd5nuh2U66NcpH3NvAs/recipe/2rX7hWRT9clHgZykyGQ9xwsKA2A",
+        "urlParameters": [],
+        "method": "GET",
+        "body": {
+          "text": "{\n  \"name\": \"Hot Toddy de Cúrcuma\",\n  \"description\": \"Hot Toddy de Cúrcuma\",\n  \"cookId\": \"2rX51krv2GAa4cPNneQhSohKHUR\",\n  \"level\": \"Iniciante\",\n  \"preparationTime\": \"10m\",\n  \"steps\": [\n    \"Firt, add the limon\",\n    \"Second, add the nothing\"\n  ],\n  \"ingredients\": [\n    {\n      \"name\": \"Limon\",\n      \"quantity\": \"7ml\"\n    },\n    {\n      \"name\": \"Limon Slice\",\n      \"quantity\": \"To decorate\"\n    }\n  ],\n  \"photoUrl\": \"https://images.ctfassets.net/3p29fwo3qudu/37nLN5LUVFWCufoVGT7dT3/19a93412cb021fc6482b7a0e71eac466/Rod_Werner__Gabriel_Palatnic__01761_CynareGrapefruit_Cover_01_crop.png-output.jpg?fm=webp&w=96&q=80\"\n}"
+        },
+        "bodyType": null,
+        "authentication": {},
+        "authenticationType": null,
+        "headers": []
+      },
+      {
+        "createdAt": "2025-01-12T17:46:18",
+        "updatedAt": "2025-01-12T18:25:55",
+        "id": "rq_hTeiUq0HFn",
+        "workspaceId": "wk_0teCzbQCRn",
+        "folderId": "fl_J59DSQIp8x",
+        "model": "http_request",
+        "sortPriority": 0.0,
+        "name": "Get Recipes by Cook",
+        "url": "${[ BASE_URL ]}/recipes/cook/2rX50LpCYd5nuh2U66NcpH3NvAs",
+        "urlParameters": [],
+        "method": "GET",
+        "body": {
+          "text": "{\n  \"name\": \"Hot Toddy de Cúrcuma\",\n  \"description\": \"Hot Toddy de Cúrcuma\",\n  \"cookId\": \"2rX51krv2GAa4cPNneQhSohKHUR\",\n  \"level\": \"Iniciante\",\n  \"preparationTime\": \"10m\",\n  \"steps\": [\n    \"Firt, add the limon\",\n    \"Second, add the nothing\"\n  ],\n  \"ingredients\": [\n    {\n      \"name\": \"Limon\",\n      \"quantity\": \"7ml\"\n    },\n    {\n      \"name\": \"Limon Slice\",\n      \"quantity\": \"To decorate\"\n    }\n  ],\n  \"photoUrl\": \"https://images.ctfassets.net/3p29fwo3qudu/37nLN5LUVFWCufoVGT7dT3/19a93412cb021fc6482b7a0e71eac466/Rod_Werner__Gabriel_Palatnic__01761_CynareGrapefruit_Cover_01_crop.png-output.jpg?fm=webp&w=96&q=80\"\n}"
+        },
+        "bodyType": null,
+        "authentication": {},
+        "authenticationType": null,
+        "headers": []
+      },
+      {
+        "createdAt": "2025-01-12T15:25:15",
+        "updatedAt": "2025-01-16T17:33:14",
+        "id": "rq_PrWZwPX7Gu",
+        "workspaceId": "wk_0teCzbQCRn",
+        "folderId": "fl_eFD4sz8q0S",
+        "model": "http_request",
+        "sortPriority": -0.0001,
+        "name": "Create category",
+        "url": "${[ BASE_URL ]}/categories",
+        "urlParameters": [],
+        "method": "POST",
+        "body": {
+          "text": "{\n  \"name\": \"Sobremesa\",\n  \"slug\": \"sobremesa\"\n}"
+        },
+        "bodyType": "application/json",
+        "authentication": {},
+        "authenticationType": null,
+        "headers": [
+          {
+            "enabled": true,
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      {
+        "createdAt": "2025-01-12T15:15:12",
+        "updatedAt": "2025-01-12T15:25:23",
+        "id": "rq_3G57rASnxT",
+        "workspaceId": "wk_0teCzbQCRn",
+        "folderId": "fl_eFD4sz8q0S",
+        "model": "http_request",
+        "sortPriority": -0.0001,
+        "name": "Get Categories",
+        "url": "${[ BASE_URL ]}/categories",
+        "urlParameters": [],
+        "method": "GET",
+        "body": {
+          "text": "{\n  \"name\": \"Dia a dia\",\n  \"slug\": \"dia-a-dia\"\n}"
+        },
+        "bodyType": null,
+        "authentication": {},
+        "authenticationType": null,
+        "headers": []
+      },
+      {
+        "createdAt": "2025-01-12T14:54:47",
+        "updatedAt": "2025-01-12T14:59:09",
+        "id": "rq_LtvOC90EVd",
+        "workspaceId": "wk_0teCzbQCRn",
+        "folderId": "fl_J59DSQIp8x",
+        "model": "http_request",
+        "sortPriority": 0.0,
+        "name": "Get Recipes",
+        "url": "${[ BASE_URL ]}/recipes",
+        "urlParameters": [],
+        "method": "GET",
+        "body": {
+          "text": "{\n  \"name\": \"Hot Toddy de Cúrcuma\",\n  \"description\": \"Hot Toddy de Cúrcuma\",\n  \"cookId\": \"2rX51krv2GAa4cPNneQhSohKHUR\",\n  \"level\": \"Iniciante\",\n  \"preparationTime\": \"10m\",\n  \"steps\": [\n    \"Firt, add the limon\",\n    \"Second, add the nothing\"\n  ],\n  \"ingredients\": [\n    {\n      \"name\": \"Limon\",\n      \"quantity\": \"7ml\"\n    },\n    {\n      \"name\": \"Limon Slice\",\n      \"quantity\": \"To decorate\"\n    }\n  ],\n  \"photoUrl\": \"https://images.ctfassets.net/3p29fwo3qudu/37nLN5LUVFWCufoVGT7dT3/19a93412cb021fc6482b7a0e71eac466/Rod_Werner__Gabriel_Palatnic__01761_CynareGrapefruit_Cover_01_crop.png-output.jpg?fm=webp&w=96&q=80\"\n}"
+        },
+        "bodyType": null,
+        "authentication": {},
+        "authenticationType": null,
+        "headers": []
+      },
+      {
+        "createdAt": "2025-01-12T14:31:45",
+        "updatedAt": "2025-01-12T15:45:01",
+        "id": "rq_TpLh1GVXmF",
+        "workspaceId": "wk_0teCzbQCRn",
+        "folderId": "fl_J59DSQIp8x",
+        "model": "http_request",
+        "sortPriority": 0.0,
+        "name": "Create Recipe",
+        "url": "${[ BASE_URL ]}/recipes",
+        "urlParameters": [],
+        "method": "POST",
+        "body": {
+          "text": "{\n  \"name\": \"[Category 2] Hot Toddy de Cúrcuma\",\n  \"description\": \"Hot Toddy de Cúrcuma\",\n  \"cookId\": \"2rX51krv2GAa4cPNneQhSohKHUR\",\n  \"level\": \"Iniciante\",\n  \"preparationTime\": \"10m\",\n  \"steps\": [\n    \"Firt, add the limon\",\n    \"Second, add the nothing\"\n  ],\n  \"ingredients\": [\n    {\n      \"name\": \"Limon\",\n      \"quantity\": \"7ml\"\n    },\n    {\n      \"name\": \"Limon Slice\",\n      \"quantity\": \"To decorate\"\n    }\n  ],\n    \"categories\": [\n    {\n      \"name\": \"Dia a dia\",\n      \"slug\": \"dia-a-dia\"\n    },\n          {\n      \"name\": \"Dia a dia 2\",\n      \"slug\": \"dia-a-dia2\"\n    }\n  ],\n  \"photoUrl\": \"https://images.ctfassets.net/3p29fwo3qudu/37nLN5LUVFWCufoVGT7dT3/19a93412cb021fc6482b7a0e71eac466/Rod_Werner__Gabriel_Palatnic__01761_CynareGrapefruit_Cover_01_crop.png-output.jpg?fm=webp&w=96&q=80\"\n}"
+        },
+        "bodyType": "application/json",
+        "authentication": {},
+        "authenticationType": null,
+        "headers": [
+          {
+            "enabled": true,
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      {
+        "createdAt": "2025-01-12T13:40:17",
+        "updatedAt": "2025-01-12T13:40:24",
+        "id": "rq_uDL5HP3woh",
+        "workspaceId": "wk_0teCzbQCRn",
+        "folderId": "fl_jOQ7NK5UxV",
+        "model": "http_request",
+        "sortPriority": -1736627700000.0,
+        "name": "Get cooks",
+        "url": "${[ BASE_URL ]}/cooks",
+        "urlParameters": [],
+        "method": "GET",
+        "body": {
+          "text": "{\n  \"name\": \"Alan Ritshon 10\",\n  \"description\": \"Alan Ritshon é um chef de cozinha apaixonado por criar experiências gastronômicas inesquecíveis. Com uma carreira marcada por criatividade e inovação, Alan combina técnicas clássicas com um toque contemporâneo, transformando ingredientes simples em pratos sofisticados e cheios de sabor. Sua especialidade está na harmonização de sabores e na apresentação visual impecável de suas criações, que encantam tanto os olhos quanto o paladar.\",\n  \"instagram\": \"@alan\",\n  \"website\": \"https://alan.com\",\n  \"photoUrl\": \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFsZ79kW1rOF7UAWroc309SGROooGnIUpC2Q&s\"\n}"
+        },
+        "bodyType": null,
+        "authentication": {},
+        "authenticationType": null,
+        "headers": []
+      },
+      {
+        "createdAt": "2025-01-11T20:34:12",
+        "updatedAt": "2025-01-16T17:55:08",
+        "id": "rq_Phieh1t65V",
+        "workspaceId": "wk_0teCzbQCRn",
+        "folderId": "fl_jOQ7NK5UxV",
+        "model": "http_request",
+        "sortPriority": -1736627700000.0,
+        "name": "Create cook",
+        "url": "${[ BASE_URL ]}/cooks",
+        "urlParameters": [],
+        "method": "POST",
+        "body": {
+          "text": "{\n  \"name\": \"Alan Ritshon 12\",\n  \"description\": \"Alan Ritshon é um chef de cozinha apaixonado por criar experiências gastronômicas inesquecíveis. Com uma carreira marcada por criatividade e inovação, Alan combina técnicas clássicas com um toque contemporâneo, transformando ingredientes simples em pratos sofisticados e cheios de sabor. Sua especialidade está na harmonização de sabores e na apresentação visual impecável de suas criações, que encantam tanto os olhos quanto o paladar.\",\n  \"instagram\": \"@alan\",\n  \"website\": \"https://alan.com\",\n  \"photoUrl\": \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFsZ79kW1rOF7UAWroc309SGROooGnIUpC2Q&s\"\n}"
+        },
+        "bodyType": "application/json",
+        "authentication": {},
+        "authenticationType": null,
+        "headers": [
+          {
+            "enabled": true,
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      }
+    ],
+    "grpcRequests": []
+  }
+}
